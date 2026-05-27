@@ -1,8 +1,8 @@
 import rectangle
 
 class Square(rectangle.Rectangle):
-    def __init__(self,width, height, side):
-        super().__init__(width, height)
+    def __init__(self,side):
+        super().__init__(width=side, height=side)
         self.side = side
     
     def get_area(self):
