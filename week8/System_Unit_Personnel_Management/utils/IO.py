@@ -1,7 +1,7 @@
 # import requests
 import json
 from logger_config import logger
-
+from .helper import *
 
 def get_all_soldiers(filename):
     try:
@@ -25,9 +25,12 @@ def seve_to_json(filename, soldiers:list):
 
 
 def add_soldier(filename, body:dict):
-    soldiers = []
-    for milon in get_all_soldiers(filename):
-        soldiers.append(milon)
-    soldiers.append(body)
-    logger.info("Add soldier successfully")
-    seve_to_json(filename, soldiers)
+    if chicke_criteria(body):
+        soldiers = []
+        for milon in get_all_soldiers(filename):
+            soldiers.append(milon)
+        soldiers.append(body)
+        logger.info("Add soldier successfully")
+        seve_to_json(filename, soldiers)
+    else:
+        logger.error("There is a problem with the dictionary they entered")
