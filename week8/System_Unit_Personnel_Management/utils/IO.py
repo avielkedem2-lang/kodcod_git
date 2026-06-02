@@ -24,6 +24,20 @@ def seve_to_json(filename, soldiers:list):
         logger.exception(f"Unable to save{e}")
 
 
+
+def get_the_soldier(filename, id):
+    if chicke_id(id):
+        for milon in get_all_soldiers(filename):
+            if milon["id"] == id:
+                logger.info("The soldier was successfully found")
+                return milon
+        logger.error(f"There is no soldier with id {id}")
+        return f"There is no soldier with id={id}"
+    return "The number less than or greater than 4 digits or is it not a digit!"
+    
+
+
+
 def add_soldier(filename, body:dict):
     if chicke_criteria(body):
         soldiers = []
@@ -34,3 +48,6 @@ def add_soldier(filename, body:dict):
         seve_to_json(filename, soldiers)
     else:
         logger.error("There is a problem with the dictionary they entered")
+
+
+

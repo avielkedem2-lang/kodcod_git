@@ -10,3 +10,11 @@ def chicke_criteria(body:dict):
         return False
     except Exception as e:
         logger.exception(f"There is a problem with the dictionary they entered, {e}")
+
+
+
+def chicke_id(id):
+    if len(str(id)) == 4 and isinstance(id, int):
+        return True
+    logger.error("The number less than or greater than 4 digits or is it not a digit!")
+    return False
