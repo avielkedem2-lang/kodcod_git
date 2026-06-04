@@ -51,6 +51,23 @@ def add_soldier(filename, body:dict):
 
 
 
+def updete_soldier_to_json(filename,body:dict, id:int):
+    if chicke_criteria(body):
+        if chicke_id(id):
+            flag = False
+            soldiers = []
+            for milon in get_all_soldiers(filename):
+                if milon["id"] == id:
+                    body["id"] = id
+                    soldiers.append(body)
+                    flag = True
+                    continue
+                soldiers.append(milon)
+            if flag:
+                return (filename,soldiers)
+
+
+
 
 
 def delete_a_soldier(filename, id):

@@ -21,6 +21,17 @@ def get_soldier(id:int):
 
 @app.post("/soldiers")
 def create_soldier(body:dict):
-    IO.add_soldier(FILE_NAME, body)
+    return IO.add_soldier(FILE_NAME, body)
+
+
+@app.put("/soldiers/{id}")
+def updete_soldier(body:dict, id:int):
+    return IO.updete_soldier_to_json(FILE_NAME, body, id)
+
+
+
+@app.delete("/soldiers/{id}")
+def delete_soldier(id:int):
+    return IO.delete_a_soldier(FILE_NAME, id)
 
 
