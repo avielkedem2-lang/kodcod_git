@@ -15,7 +15,7 @@ def get_all_soldiers(filename):
 
 
 
-def seve_to_json(filename, soldiers:list):
+def save_to_json(filename, soldiers:list):
     try:
         with open(filename, "w", encoding="utf-8") as file:
             json.dump(soldiers, file, indent=2)
@@ -45,9 +45,30 @@ def add_soldier(filename, body:dict):
             soldiers.append(milon)
         soldiers.append(body)
         logger.info("Add soldier successfully")
-        seve_to_json(filename, soldiers)
+        save_to_json(filename, soldiers)
     else:
         logger.error("There is a problem with the dictionary they entered")
+
+
+
+
+
+def delete_a_soldier(filename, id):
+    if chicke_id(id):
+        flag = True
+        soldiers = []
+        for milon in get_all_soldiers(filename):
+            if milon["id"] == id:
+                logger.info("Soldier deletion was successful")
+                flag = False
+                continue
+            soldiers.append(milon)
+        save_to_json(filename, soldiers)
+        if flag:
+            logger.error(f"There is no soldier with id={id}")
+            return f"There is no soldier with id={id}"
+        return "Soldier deletion was successful"
+        
 
 
 
