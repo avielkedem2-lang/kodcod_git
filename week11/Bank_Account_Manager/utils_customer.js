@@ -1,4 +1,4 @@
-import {createCustomer, searchCustomer} from "./customer_manager.js"
+import {createCustomer, searchCustomer, closeAccount} from "./customer_manager.js"
 import rl from "readline-sync"
 
 
@@ -70,3 +70,16 @@ export function sandToSearchCustomer(){
         return false
     }
 }
+
+
+
+
+
+export function closeAccountValdition(){
+    const id = rl.questionInt("Enter id: ")
+    const customer = searchCustomer(id.toString())
+    if (customer){
+        closeAccount(id, customer)
+    }
+}
+

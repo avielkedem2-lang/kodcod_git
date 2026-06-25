@@ -38,9 +38,6 @@ export function createCustomer(id, name, accountType, balance) {
 
 
 
-
-
-
 export function searchCustomer(val){
   const allCustomers = save.getAllCustomers()
   const isId = allCustomers.find((customer) => {
@@ -49,4 +46,12 @@ export function searchCustomer(val){
   return isId
 }
 
+
+
+
+
+export function closeAccount(id, customer){
+    const theCustomer = customer
+    theCustomer.isActive = false
+}
 
