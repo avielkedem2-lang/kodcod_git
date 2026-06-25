@@ -83,3 +83,23 @@ export function closeAccountValdition(){
     }
 }
 
+export function displayBankMenu() {
+    
+    
+    console.log("===== menu =====")
+    console.log("  [1]  Create Customer");
+    console.log("  [2]  Show Customers");
+    console.log("  [3]  Deposit");
+    console.log("  [4]  Withdraw");
+    console.log("  [5]  Search Customer");
+    console.log("  [6]  Close Account");
+    console.log("  [7]  Show Statistics");
+    console.log("  [0]  Exit"); 
+    
+    console.log("========================================");
+    console.log("Please enter your choice (0-7): ");
+    console.log("")
+    console.log("")
+    console.log("")
+}
+
