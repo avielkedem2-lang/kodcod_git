@@ -6,6 +6,8 @@ export function deposit(id, amount, customer){
 }
 
 
-
-
+export function Withdraw(id, amount, customer){
+    const theCustomer = customer
+    theCustomer.balance -= amount
+}
 
